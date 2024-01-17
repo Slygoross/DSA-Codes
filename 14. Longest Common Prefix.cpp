@@ -24,4 +24,21 @@ public:
     }
 };
 
-//
+//Optimal Approach:
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        sort(strs.begin(), strs.end());
+
+        string first = strs.front();
+        string last = strs.back();
+
+        int commonLength = 0;
+
+        while(commonLength < first.length() && first[commonLength] == last[commonLength]){
+            commonLength++;
+        }
+
+        return first.substr(0,commonLength);
+    }
+};
